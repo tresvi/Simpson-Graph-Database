@@ -67,13 +67,17 @@ CREATE (c16:Character{name:"Gareth", surname: "Prince"} )
 CREATE (c16:Character{name:"Gloria", surname: "Prince"} )
 CREATE (c16:Character{name:"Martin", surname: "Prince"} )
 CREATE (c16:Character{name:"Patty", surname: "Bouvier"} )
-CREATE (c16:Character{name:"Zelma", surname: "Bouvier"} )
+CREATE (c16:Character{name:"Selma", surname: "Bouvier"} )
 CREATE (c16:Character{name:"Clancy", surname: "Bouvier"} )
 CREATE (c16:Character{name:"Jacqueline", surname: "Bouvier"} )
 CREATE (c16:Character{name:"Barney", surname: "Gumble"} )
 CREATE (c16:Character{name:"Lionel", surname: "Hutz"} )
 CREATE (c16:Character{name:"Discoteque", surname: "Stuart", alias: "Disco Stu"} )
 CREATE (c16:Character{name:"Jasper", surname: "Beardley"} )
+CREATE (c16:Character{name:"Dolphin", surname: "Starbeam"} )
+CREATE (c16:Character{name:"Kearney", surname: "Zzyzwicz"} )
+APU
+Mangula
 
 
 
@@ -91,7 +95,7 @@ CREATE (l:Location{description:"Kwik-E-Mart"} )
 CREATE (l:Location{description:"Spingfied Police Departent"} )
 CREATE (l:Location{description:"Channel 6"} )
 CREATE (l:Location{description:"Springfield Town Hall"} )
-CREATE (l:Location{description:"Springfield Retirement Castle"} )
+CREATE (l:Location{description:"Springfield Retirement Castle", address: "100 Veterans Avenue"} )
 
 
 
@@ -101,4 +105,13 @@ Snowball 2
 Canary M. Burns
 Stampy
 Stewart Duck 
+Princess caballo de lisa
 
+Relations: 
+hijo de is child of
+works in
+live in
+frecuenta 
+Incripto en
+es alumno de
+es amigo de
