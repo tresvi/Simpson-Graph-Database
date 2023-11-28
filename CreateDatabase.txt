@@ -1,0 +1,104 @@
+Homer
+Marge 
+Bart
+Lisa
+Charles Montgomery Burns
+Moe Szyslak
+Seymour
+Ned Flanders
+Krusty the Clown
+Abraham Simpson
+
+Characters
+
+CREATE (c1:Character{name:"Homer", surname:"Simpson", age: 36} )
+CREATE (c2:Character{name:"Marge", surname:"Simpson", maidenName: "Bouvier"} )
+CREATE (c3:Character{name:"Bart", surname:"Simpson", age: 10, alias: "El Barto"} )
+CREATE (c4:Character{name:"Lisa", surname:"Simpson", age: 8} )
+CREATE (c5:Character{name:"Maggie", surname:"Simpson", age: 1} )
+CREATE (c6:Character{name:"Abraham", surname:"Simpson", age: 87, alias: "Grampa Simpson"} )
+CREATE (c6:Character{name:"Mona", surname:"Simpson", age: 68 )
+CREATE (c6:Character{name:"Orville", surname:"Simpson"} )
+CREATE (c6:Character{name:"Yuma", surname:"Simpson"} )
+CREATE (c6:Character{name:"Hubert", surname:"Simpson"} )
+CREATE (c6:Character{name:"Tyrone", surname:"Simpson"} )
+CREATE (c6:Character{name:"Cyrus", surname:"Simpson"} )
+CREATE (c6:Character{name:"Chet", surname:"Simpson"} )
+CREATE (c7:Character{name:"Herbert", surname:"Powell", age: 38} )
+CREATE (c8:Character{name:"Charles Montgomery", surname:"Burns"} )
+CREATE (c9:Character{name:"Moe", surname:"Szyslak"} )
+CREATE (c10:Character{name:"Seymour", surname:"Skinner", alias: "Armin Tanzarian"} )
+CREATE (c10:Character{name:"Agnes", surname:"Skinner"} )
+CREATE (c11:Character{name:"Ned", surname:"Flanders"} )
+CREATE (c12:Character{name:"Maude", surname:"Flanders"} )
+CREATE (c13:Character{name:"Todd", surname:"Flanders"} )
+CREATE (c14:Character{name:"Rod", surname:"Flanders"} )
+CREATE (c15:Character{name:"Herschel", surname:"Krustofsky", alias: "Krusty the clown"} )
+CREATE (c15:Character{name:"Sophie", surname:"Krustofsky"} )
+CREATE (c15:Character{name:"Hyman", surname:"Krustofsky"} )
+CREATE (c15:Character{name:"Rachel", surname:"Krustofsky"} )
+CREATE (c15:Character{name:"Zed", surname:"Krustofsky"} )
+CREATE (c16:Character{name:"Jeffrey", surname:"Albertson", alias: "The comic book guy"} )
+CREATE (c16:Character{name:"Edna", surname:"Krabapel"} )
+CREATE (c16:Character{name:"Joe", surname:"Quimby"} )
+CREATE (c16:Character{name:"Timothy", surname:"Lovejoy", alias: "Reverend Lovejoy"} )
+CREATE (c16:Character{name:"Jessica", surname:"Lovejoy"} )
+CREATE (c16:Character{name:"Helen", surname:"Lovejoy"} )
+CREATE (c16:Character{name:"Clancy", surname:"Wiggum"} )
+CREATE (c16:Character{name:"Sarah", surname:"Wiggum"} )
+CREATE (c16:Character{name:"Ralph", surname:"Wiggum"} )
+CREATE (c16:Character{name:"Lou"} )
+CREATE (c16:Character{name:"Eddie"} )
+CREATE (c16:Character{name:"Kent", surname: "Brockman"} )
+CREATE (c16:Character{name:"Pedro", surname: "Chespirito", alias: "Bumblebee man"} )
+CREATE (c16:Character{name:"Waylon", surname: "Smithers"} )
+CREATE (c16:Character{name:"Lenny", surname: "Leonard"} )
+CREATE (c16:Character{name:"Carl", surname: "Carlson"} )
+CREATE (c16:Character{name:"Elizabeth", surname: "Hoover"} )
+CREATE (c16:Character{name:"Milhouse", surname: "Van Houten"} )
+CREATE (c16:Character{name:"Milhouse", surname: "Van Houten"} )
+CREATE (c16:Character{name:"Kirk", surname: "Van Houten"} )
+CREATE (c16:Character{name:"Luann", surname: "Van Houten"} )
+CREATE (c16:Character{name:"Jerry", surname: "Mackleberry"} )
+CREATE (c16:Character{name:"Berry", surname: "Mackleberry"} )
+CREATE (c16:Character{name:"Terry", surname: "Mackleberry"} )
+CREATE (c16:Character{name:"Sherry", surname: "Mackleberry"} )
+CREATE (c16:Character{name:"Gareth", surname: "Prince"} )
+CREATE (c16:Character{name:"Gloria", surname: "Prince"} )
+CREATE (c16:Character{name:"Martin", surname: "Prince"} )
+CREATE (c16:Character{name:"Patty", surname: "Bouvier"} )
+CREATE (c16:Character{name:"Zelma", surname: "Bouvier"} )
+CREATE (c16:Character{name:"Clancy", surname: "Bouvier"} )
+CREATE (c16:Character{name:"Jacqueline", surname: "Bouvier"} )
+CREATE (c16:Character{name:"Barney", surname: "Gumble"} )
+CREATE (c16:Character{name:"Lionel", surname: "Hutz"} )
+CREATE (c16:Character{name:"Discoteque", surname: "Stuart", alias: "Disco Stu"} )
+CREATE (c16:Character{name:"Jasper", surname: "Beardley"} )
+
+
+
+Locations
+CREATE (l:Location{description:"Springfield Power Plant"} )
+CREATE (l:Location{description:"Simpson residence", address: "Evergreen 742"} )
+CREATE (l:Location{description:"Flanders residence", address: "Evergreen 744"} )
+CREATE (l:Location{description:"The Android's dungeon", address: "Evergreen 744"} )
+CREATE (l:Location{description:"Springfield Elementary School"} )
+CREATE (l:Location{description:"Moe's Tavern"} )
+CREATE (l:Location{description:"First church of Springfield"} )
+CREATE (l:Location{description:"Aztec Theater"} )
+CREATE (l:Location{description:"Krusty Burgers"} )
+CREATE (l:Location{description:"Kwik-E-Mart"} )
+CREATE (l:Location{description:"Spingfied Police Departent"} )
+CREATE (l:Location{description:"Channel 6"} )
+CREATE (l:Location{description:"Springfield Town Hall"} )
+CREATE (l:Location{description:"Springfield Retirement Castle"} )
+
+
+
+Animals or Pets
+Santa's Little Helper
+Snowball 2
+Canary M. Burns
+Stampy
+Stewart Duck 
+
