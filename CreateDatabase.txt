@@ -1,23 +1,52 @@
 Characters
 
-CREATE (c1:Character{name:"Homer", surname:"Simpson", age: 36, sex: "Male"} )
-CREATE (c2:Character{name:"Marge", surname:"Simpson", age: 34, maidenName: "Bouvier", sex: "Female"} )
-CREATE (c3:Character{name:"Bart", surname:"Simpson", age: 10, alias: "El Barto", sex: "Male"} )
-CREATE (c4:Character{name:"Lisa", surname:"Simpson", age: 8, sex: "Female"} )
-CREATE (c5:Character{name:"Maggie", surname:"Simpson", age: 1, sex: "Female"} )
-CREATE (c6:Character{name:"Abraham", surname:"Simpson", age: 87, alias: "Grampa Simpson", sex: "Male"} )
-CREATE (c6:Character{name:"Mona Penelope", surname:"Simpson", maidenName: "Olsen", age: 68, sex: "Female" )
+//Orville - Yuma Marriage
+CREATE (o:Character{name:"Orville", surname:"Simpson", sex: "Male"} )
+       -[:MARRIED_WITH]->(y:Character{name:"Yuma", surname:"Simpson", maidenName: "Hickman" ,sex: "Female"} )
+	   -[:MARRIED_WITH]->(o)
 
-CREATE (c6:Character{name:"Orville", surname:"Simpson", sex: "Male"} ) //Esposo de Yuma Simpson
-CREATE (c6:Character{name:"Yuma", surname:"Simpson", maidenName: "Hickman" ,sex: "Female"} )  //Esposa de Orville Simpson
-CREATE (c6:Character{name:"Hubert", surname:"Simpson", sex: "Male"} )
-CREATE (c6:Character{name:"Tyrone", surname:"Simpson", sex: "Male"} )
-CREATE (c6:Character{name:"Cyrus", surname:"Simpson", sex: "Male"} )
-CREATE (c6:Character{name:"Chet", surname:"Simpson", sex: "Male"} ) 
+//Orville - Yuma sons
+MATCH (orville:Character{name:"Orville", surname:"Simpson"}), (yuma:Character{name:"Yuma", surname:"Simpson"})
+CREATE (hubert:Character{name:"Hubert", surname:"Simpson", sex: "Male"})-[:CHILD_OF]->(orville)
+	  ,(hubert)-[:CHILD_OF]->(yuma)
+	  ,(tyrone:Character{name:"Tyrone", surname:"Simpson", sex: "Male"})-[:CHILD_OF]->(orville)
+	  ,(tyrone)-[:CHILD_OF]->(yuma)
+	  ,(cyrus:Character{name:"Cyrus", surname:"Simpson", sex: "Male"})-[:CHILD_OF]->(orville)
+	  ,(cyrus)-[:CHILD_OF]->(yuma)
+	  ,(chet:Character{name:"Chet", surname:"Simpson", sex: "Male"})-[:CHILD_OF]->(orville)
+	  ,(chet)-[:CHILD_OF]->(yuma)
+	  ,(abraham:Character{name:"Abraham", surname:"Simpson", sex: "Male"})-[:CHILD_OF]->(orville)
+	  ,(abraham)-[:CHILD_OF]->(yuma)
 
-CREATE (c7:Character{name:"Herbert", surname:"Powell", age: 38, sex: "Male"} )
-CREATE (c8:Character{name:"Charles Montgomery", surname:"Burns", sex: "Male"} )
-CREATE (c8:Character{name:"Larry", surname:"Burns", sex: "Male"} )
+
+//Homer-Marge Marriage
+CREATE (h:Character{name:"Homer", surname:"Simpson", age: 36, sex: "Male"} ) 
+       -[:MARRIED_WITH]->(m:Character{name:"Marge", surname:"Simpson", maidenName: "Bouvier", age: 34, sex: "Female"} )
+	   -[:MARRIED_WITH]->(h)
+	   
+//Simpson Kids. Another way to filer the fathers nodes
+MATCH (homer:Character{name:"Homer"}), (marge:Character{name:"Marge"})
+WHERE homer.surname = "Simpson" And marge.surname = "Simpson"
+CREATE (bart:Character{name:"Bart", surname:"Simpson", age: 10, alias: "El Barto", sex: "Male"}) -[:CHILD_OF]-> (homer)
+	  ,(bart)-[:CHILD_OF]-> (marge)
+	  ,(lisa:Character{name:"Lisa", surname:"Simpson", age: 8, sex: "Female"})-[:CHILD_OF]->(homer)
+	  ,(lisa)-[:CHILD_OF]-> (marge)
+	  ,(maggie:Character{name:"Maggie", surname:"Simpson", age: 1, sex: "Female"})-[:CHILD_OF]->(homer)
+	  ,(maggie)-[:CHILD_OF]->(marge)
+	  ,(hugo:Character{name:"Hugo", surname:"Simpson", age: 10, sex: "Male"}) -[:CHILD_OF {type: "fictitious"}]-> (homer)
+	  ,(hugo)-[:CHILD_OF{type: "fictitious"}]-> (marge)
+	  
+	  
+MATCH  (abe:Character{name:"Abraham", surname:"Simpson"}), (homer:Character{name:"Homer", surname:"Simpson"})
+CREATE (mona:Character{name:"Mona", surname:"Simpson", maidenName:"Olsen", alias: "Grandma Simpson, Sunny, El Mono"})-[:MARRIED_WITH]->(abe)
+	  ,(herbert:Character{name:"Herbert", surname:"Powell", age: 38, sex: "Male"})-[:CHILD_OF]->(abe)
+	  ,(homer)-[:CHILD_OF]->(abe)
+	  ,(homer)-[:CHILD_OF]->(mona)
+	 
+
+CREATE (c1:Character{name:"Charles Montgomery", surname:"Burns", sex: "Male"} )
+	   -[:CHILD_OF]->
+	   (c2:Character{name:"Larry", surname:"Burns", sex: "Male"} )
 
 CREATE (c9:Character{name:"Moe", surname:"Szyslak", sex: "Male"} )
 CREATE (c10:Character{name:"Seymour", surname:"Skinner", alias: "Armin Tanzarian", sex: "Male"} )
@@ -70,7 +99,7 @@ CREATE (c16:Character{name:"Dolphin", surname: "Starbeam", sex: "Male"} )
 CREATE (c16:Character{name:"Kearney", surname: "Zzyzwicz", sex: "Male"} )
 CREATE (c16:Character{name:"Apu", surname: "Nahasapeemapetilon", sex: "Male"} )
 CREATE (c16:Character{name:"Manjula", surname: "Nahasapeemapetilon", sex: "Female"} )
-CREATE (c16:Character{name:"Apu Sr.", surname: "Nahasapeemapetilon", sex: "Male"} )
+CREATE (c16:Character{name:"Apu Sr.", surname: "Nahasapeemapetilon", sex: "Male"} )   //Married_With, Arranged: True
 CREATE (c16:Character{name:"---", surname: "Nahasapeemapetilon" alias: "Mrs. Nahasapeemapetilon", sex: "Female"} )
 CREATE (c16:Character{name:"Sanjay", surname: "Nahasapeemapetilon", sex: "Male"} )
 CREATE (c16:Character{name:"Tikku", surname: "Nahasapeemapetilon", sex: "Male"} )
@@ -83,90 +112,101 @@ Family Spuckler
 https://simpsons.fandom.com/wiki/Cletus_Spuckler
 https://simpsons.fandom.com/wiki/Spuckler_Children#List_of_Children
 
+
+//Grand-grandparent Spuckler
 CREATE (Character{name:"Unamed alien", surname: "---", sex: "Unknown"} )  //Padres de Cletus
-CREATE (Character{name:"Pete", surname: "Spuckler", sex: "Male"} )  //Padres de Cletus
-CREATE (Character{name:"Maw", surname: "Spuckler", sex: "Female"} )  //Padres de Cletus
 
-CREATE (Character{name:"Cletus", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Brandine", surname: "Spuckler", maidenName: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Brittany", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Cassidy", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Chloe", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Cody", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Dermott", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Dylan", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Heather", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Hunter", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Ian", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Jordan", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Katlin", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Kendall", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Kevin", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Kira", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Lauren", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Morgan", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Max", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Noah", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Phil", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Q-Bert", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Rumor", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Sascha", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Scout", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Taylor", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Tiffany", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Wesley", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Zoe", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Gummy Sue", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Rubella Scabies", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Witney", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Jitney", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Dubya", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Crystal Meth", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Incest", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"International Harvester", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Bithday", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Mary", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Stabbed in Jail", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Normal Head Joe", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Embry Joe", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Michael", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Ping", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Melvis", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Tripod", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Barrow", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Wheel", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Gitmo", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Minimum Wade", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Pediculus", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Fontanelle", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Oxycontin", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Dara", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Addem-Up", surname: "Spuckler", sex: "Male"} )
-CREATE (Character{name:"Yasha", surname: "Spuckler", sex: "Female"} )
-CREATE (Character{name:"Rest Stop", surname: "Spuckler", sex: "Female"} )
+//Grandparents Spucklers
+CREATE (:Character{name:"Pete", surname: "Spuckler", sex: "Male"} )  //Padres de Cletus
+	,(:Character{name:"Maw", surname: "Spuckler", sex: "Female"} )  //Padres de Cletus
+
+//Parents Spuckler
+CREATE (:Character{name:"Cletus", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Brandine", surname: "Spuckler", maidenName: "Spuckler", sex: "Female"} )
+
+//Children of Spuckler
+CREATE (:Character{name:"Brittany", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Cassidy", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Chloe", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Cody", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Dermott", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Dylan", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Heather", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Hunter", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Ian", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Jordan", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Katlin", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Kendall", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Kevin", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Kira", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Lauren", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Morgan", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Max", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Noah", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Phil", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Q-Bert", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Rumor", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Sascha", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Scout", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Taylor", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Tiffany", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Wesley", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Zoe", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Gummy Sue", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Rubella Scabies", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Witney", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Jitney", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Dubya", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Crystal Meth", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Incest", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"International Harvester", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Bithday", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Mary", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Stabbed in Jail", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Normal Head Joe", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Embry Joe", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Michael", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Ping", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Melvis", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Tripod", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Barrow", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Wheel", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Gitmo", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Minimum Wade", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Pediculus", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Fontanelle", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Oxycontin", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Dara", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Addem-Up", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Yasha", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Rest Stop", surname: "Spuckler", sex: "Female"} )
 
 
+MATCH (child:Character), (parent:Character)
+WHERE  child.surname = 'Spuckler' AND NOT (child.name IN ['Brandine', 'Cletus', 'Pete', 'Mau'])
+AND parent.surname = 'Spuckler' AND parent.name IN ['Brandine', 'Cletus']
+CREATE (child)-[:IS_CHILD_OF]->(parent)
 
-
-
+MATCH (n {surname: 'Spuckler'})
+DETACH DELETE n
 
 
 
 Locations
-CREATE (l:Location{description:"Springfield Power Plant"} )
-CREATE (l:Location{description:"Simpson residence", address: "Evergreen 742"} )
-CREATE (l:Location{description:"Flanders residence", address: "Evergreen 744"} )
-CREATE (l:Location{description:"The Android's dungeon", address: "Evergreen 744"} )
-CREATE (l:Location{description:"Springfield Elementary School"} )
-CREATE (l:Location{description:"Moe's Tavern"} )
-CREATE (l:Location{description:"First church of Springfield"} )
-CREATE (l:Location{description:"Aztec Theater"} )
-CREATE (l:Location{description:"Krusty Burgers"} )
-CREATE (l:Location{description:"Kwik-E-Mart"} )
-CREATE (l:Location{description:"Spingfied Police Departent"} )
-CREATE (l:Location{description:"Channel 6"} )
-CREATE (l:Location{description:"Springfield Town Hall"} )
-CREATE (l:Location{description:"Springfield Retirement Castle", address: "100 Veterans Avenue"} )
+CREATE (:Location{description:"Springfield Power Plant"} )
+	,(:Location{description:"Simpson residence", address: "Evergreen 742"} )
+	,(:Location{description:"Flanders residence", address: "Evergreen 744"} )
+	,(:Location{description:"The Android's dungeon"} )
+	,(:Location{description:"Springfield Elementary School"} )
+	,(:Location{description:"Moe's Tavern"} )
+	,(:Location{description:"First church of Springfield"} )
+	,(:Location{description:"Aztec Theater"} )
+	,(:Location{description:"Krusty Burgers"} )
+	,(:Location{description:"Kwik-E-Mart"} )
+	,(:Location{description:"Spingfied Police Departent"} )
+	,(:Location{description:"Channel 6"} )
+	,(:Location{description:"Springfield Town Hall"} )
+	,(:Location{description:"Springfield Retirement Castle", address: "100 Veterans Avenue"} )
 
 
 
@@ -177,9 +217,10 @@ Canary M. Burns
 Stampy
 Stewart Duck 
 Princess caballo de lisa
+Moyo, mono
 
 Relations: 
-hijo de is child of
+is child of
 works in
 live in
 frecuenta 
