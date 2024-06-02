@@ -1,0 +1,24 @@
+//Pending to be implemented
+/*
+Animals or Pets
+Santa's Little Helper
+Snowball 2
+Canary M. Burns
+Stampy
+Stewart Duck 
+Princess caballo de lisa
+Moyo, mono
+
+Relations: 
+is child of
+works in
+live in
+frecuenta 
+Incripto en
+es alumno de
+es amigo de
+*/
+
+
+Queries:
+

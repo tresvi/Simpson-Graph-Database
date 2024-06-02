@@ -1,4 +1,4 @@
-Characters
+//Characters
 
 //Orville - Yuma Marriage
 CREATE (o:Character{name:"Orville", surname:"Simpson", sex: "Male"} )
@@ -6,7 +6,9 @@ CREATE (o:Character{name:"Orville", surname:"Simpson", sex: "Male"} )
 	   -[:MARRIED_WITH]->(o)
 
 //Orville - Yuma sons
-MATCH (orville:Character{name:"Orville", surname:"Simpson"}), (yuma:Character{name:"Yuma", surname:"Simpson"})
+MATCH (orville:Character{name:"Orville", surname:"Simpson"})
+	, (yuma:Character{name:"Yuma", surname:"Simpson"})
+WITH orville, yuma
 CREATE (hubert:Character{name:"Hubert", surname:"Simpson", sex: "Male"})-[:CHILD_OF]->(orville)
 	  ,(hubert)-[:CHILD_OF]->(yuma)
 	  ,(tyrone:Character{name:"Tyrone", surname:"Simpson", sex: "Male"})-[:CHILD_OF]->(orville)
@@ -24,7 +26,7 @@ CREATE (h:Character{name:"Homer", surname:"Simpson", age: 36, sex: "Male"} )
        -[:MARRIED_WITH]->(m:Character{name:"Marge", surname:"Simpson", maidenName: "Bouvier", age: 34, sex: "Female"} )
 	   -[:MARRIED_WITH]->(h)
 	   
-//Simpson Kids. Another way to filer the fathers nodes
+//Simpson Kids. Another way to fill the fathers nodes
 MATCH (homer:Character{name:"Homer"}), (marge:Character{name:"Marge"})
 WHERE homer.surname = "Simpson" And marge.surname = "Simpson"
 CREATE (bart:Character{name:"Bart", surname:"Simpson", age: 10, alias: "El Barto", sex: "Male"}) -[:CHILD_OF]-> (homer)
@@ -45,72 +47,94 @@ CREATE (mona:Character{name:"Mona", surname:"Simpson", maidenName:"Olsen", alias
 	 
 
 CREATE (c1:Character{name:"Charles Montgomery", surname:"Burns", sex: "Male"} )
-	   -[:CHILD_OF]->
+	   <-[:CHILD_OF]-
 	   (c2:Character{name:"Larry", surname:"Burns", sex: "Male"} )
 
-CREATE (c9:Character{name:"Moe", surname:"Szyslak", sex: "Male"} )
-CREATE (c10:Character{name:"Seymour", surname:"Skinner", alias: "Armin Tanzarian", sex: "Male"} )
-CREATE (c10:Character{name:"Agnes", surname:"Skinner", sex: "Female"} )
-CREATE (c11:Character{name:"Ned", surname:"Flanders", sex: "Male"} )
-CREATE (c12:Character{name:"Maude", surname:"Flanders", sex: "Female"} )
-CREATE (c13:Character{name:"Todd", surname:"Flanders", sex: "Male"} )
-CREATE (c14:Character{name:"Rod", surname:"Flanders", sex: "Male"} )
-CREATE (c15:Character{name:"Herschel", surname:"Krustofsky", alias: "Krusty the clown", sex: "Male"} )
-CREATE (c15:Character{name:"Sophie", surname:"Krustofsky", sex: "Female"} )
-CREATE (c15:Character{name:"Hyman", surname:"Krustofsky", sex: "Male"} )
-CREATE (c15:Character{name:"Rachel", surname:"Krustofsky", sex: "Female"} )
-CREATE (c15:Character{name:"Zed", surname:"Krustofsky", sex: "Male"} )
-CREATE (c16:Character{name:"Jeffrey", surname:"Albertson", alias: "The comic book guy", sex: "Male"} )
-CREATE (c16:Character{name:"Edna", surname:"Krabapel", sex: "Female"} )
-CREATE (c16:Character{name:"Joe", surname:"Quimby", sex: "Male"} )
-CREATE (c16:Character{name:"Timothy", surname:"Lovejoy", alias: "Reverend Lovejoy", sex: "Male"} )
-CREATE (c16:Character{name:"Jessica", surname:"Lovejoy", sex: "Female"} )
-CREATE (c16:Character{name:"Helen", surname:"Lovejoy", sex: "Female"} )
-CREATE (c16:Character{name:"Clancy", surname:"Wiggum", sex: "Male"} )
-CREATE (c16:Character{name:"Sarah", surname:"Wiggum", sex: "Female"} )
-CREATE (c16:Character{name:"Ralph", surname:"Wiggum", sex: "Male"} )
-CREATE (c16:Character{name:"Lou", sex: "Male"} )
-CREATE (c16:Character{name:"Eddie", sex: "Male"} )
-CREATE (c16:Character{name:"Kent", surname: "Brockman", sex: "Male"} )
-CREATE (c16:Character{name:"Pedro", surname: "Chespirito", alias: "Bumblebee man", sex: "Male"} )
-CREATE (c16:Character{name:"Waylon", surname: "Smithers", sex: "Male"} )
-CREATE (c16:Character{name:"Lenny", surname: "Leonard", sex: "Male"} )
-CREATE (c16:Character{name:"Carl", surname: "Carlson", sex: "Male"} )
-CREATE (c16:Character{name:"Elizabeth", surname: "Hoover", sex: "Female"} )
-CREATE (c16:Character{name:"Milhouse", surname: "Van Houten", sex: "Female"} )
-CREATE (c16:Character{name:"Kirk", surname: "Van Houten", sex: "Male"} )
-CREATE (c16:Character{name:"Luann", surname: "Van Houten", sex: "Female"} )
-CREATE (c16:Character{name:"Jerry", surname: "Mackleberry", sex: "Male"} )
-CREATE (c16:Character{name:"Berry", surname: "Mackleberry", sex: "Female"} )
-CREATE (c16:Character{name:"Terry", surname: "Mackleberry", sex: "Female"} )
-CREATE (c16:Character{name:"Sherry", surname: "Mackleberry", sex: "Female"} )
-CREATE (c16:Character{name:"Gareth", surname: "Prince", sex: "Male"} )
-CREATE (c16:Character{name:"Gloria", surname: "Prince", sex: "Female"} )
-CREATE (c16:Character{name:"Martin", surname: "Prince", sex: "Male"} )
-CREATE (c16:Character{name:"Patty", surname: "Bouvier", sex: "Female"} )
-CREATE (c16:Character{name:"Selma", surname: "Bouvier", sex: "Female"} )
-CREATE (c16:Character{name:"Clancy", surname: "Bouvier", sex: "Male"} )
-CREATE (c16:Character{name:"Jacqueline", surname: "Bouvier", sex: "Female"} )
-CREATE (c16:Character{name:"Barney", surname: "Gumble", sex: "Male"} )
-CREATE (c16:Character{name:"Lionel", surname: "Hutz", sex: "Male"} )
-CREATE (c16:Character{name:"Discoteque", surname: "Stuart", alias: "Disco Stu", sex: "Male"} )
-CREATE (c16:Character{name:"Jasper", surname: "Beardley", sex: "Male"} )
-CREATE (c16:Character{name:"Dolphin", surname: "Starbeam", sex: "Male"} )
-CREATE (c16:Character{name:"Kearney", surname: "Zzyzwicz", sex: "Male"} )
-CREATE (c16:Character{name:"Apu", surname: "Nahasapeemapetilon", sex: "Male"} )
-CREATE (c16:Character{name:"Manjula", surname: "Nahasapeemapetilon", sex: "Female"} )
-CREATE (c16:Character{name:"Apu Sr.", surname: "Nahasapeemapetilon", sex: "Male"} )   //Married_With, Arranged: True
-CREATE (c16:Character{name:"---", surname: "Nahasapeemapetilon" alias: "Mrs. Nahasapeemapetilon", sex: "Female"} )
-CREATE (c16:Character{name:"Sanjay", surname: "Nahasapeemapetilon", sex: "Male"} )
-CREATE (c16:Character{name:"Tikku", surname: "Nahasapeemapetilon", sex: "Male"} )
+CREATE (:Character{name:"Moe", surname:"Szyslak", sex: "Male"} )
+CREATE (:Character{name:"Seymour", surname:"Skinner", alias: "Armin Tanzarian", sex: "Male"} )
+CREATE (:Character{name:"Agnes", surname:"Skinner", sex: "Female"} )
+CREATE (:Character{name:"Ned", surname:"Flanders", sex: "Male"} )
+CREATE (:Character{name:"Maude", surname:"Flanders", sex: "Female"} )
+CREATE (:Character{name:"Todd", surname:"Flanders", sex: "Male"} )
+CREATE (:Character{name:"Rod", surname:"Flanders", sex: "Male"} )
+CREATE (:Character{name:"Herschel", surname:"Krustofsky", alias: "Krusty the clown", sex: "Male"} )
+CREATE (:Character{name:"Sophie", surname:"Krustofsky", sex: "Female"} )
+CREATE (:Character{name:"Hyman", surname:"Krustofsky", sex: "Male"} )
+CREATE (:Character{name:"Rachel", surname:"Krustofsky", sex: "Female"} )
+CREATE (:Character{name:"Zed", surname:"Krustofsky", sex: "Male"} )
+CREATE (:Character{name:"Jeffrey", surname:"Albertson", alias: "The comic book guy", sex: "Male"} )
+CREATE (:Character{name:"Edna", surname:"Krabapel", sex: "Female"} )
+CREATE (:Character{name:"Joe", surname:"Quimby", sex: "Male"} )
+CREATE (:Character{name:"Timothy", surname:"Lovejoy", alias: "Reverend Lovejoy", sex: "Male"} )
+CREATE (:Character{name:"Jessica", surname:"Lovejoy", sex: "Female"} )
+CREATE (:Character{name:"Helen", surname:"Lovejoy", sex: "Female"} )
+CREATE (:Character{name:"Clancy", surname:"Wiggum", sex: "Male"} )
+CREATE (:Character{name:"Sarah", surname:"Wiggum", sex: "Female"} )
+CREATE (:Character{name:"Ralph", surname:"Wiggum", sex: "Male"} )
+CREATE (:Character{name:"Lou", sex: "Male"} )
+CREATE (:Character{name:"Eddie", sex: "Male"} )
+CREATE (:Character{name:"Kent", surname: "Brockman", sex: "Male"} )
+CREATE (:Character{name:"Pedro", surname: "Chespirito", alias: "Bumblebee man", sex: "Male"} )
+CREATE (:Character{name:"Waylon", surname: "Smithers", sex: "Male"} )
+CREATE (:Character{name:"Lenny", surname: "Leonard", sex: "Male"} )
+CREATE (:Character{name:"Carl", surname: "Carlson", sex: "Male"} )
+CREATE (:Character{name:"Elizabeth", surname: "Hoover", sex: "Female"} )
+CREATE (:Character{name:"Milhouse", surname: "Van Houten", sex: "Female"} )
+CREATE (:Character{name:"Kirk", surname: "Van Houten", sex: "Male"} )
+CREATE (:Character{name:"Luann", surname: "Van Houten", sex: "Female"} )
+CREATE (:Character{name:"Jerry", surname: "Mackleberry", sex: "Male"} )
+CREATE (:Character{name:"Berry", surname: "Mackleberry", sex: "Female"} )
+CREATE (:Character{name:"Terry", surname: "Mackleberry", sex: "Female"} )
+CREATE (:Character{name:"Sherry", surname: "Mackleberry", sex: "Female"} )
+CREATE (:Character{name:"Gareth", surname: "Prince", sex: "Male"} )
+CREATE (:Character{name:"Gloria", surname: "Prince", sex: "Female"} )
+CREATE (:Character{name:"Martin", surname: "Prince", sex: "Male"} )
+CREATE (:Character{name:"Patty", surname: "Bouvier", sex: "Female"} )
+CREATE (:Character{name:"Selma", surname: "Bouvier", sex: "Female"} )
+CREATE (:Character{name:"Clancy", surname: "Bouvier", sex: "Male"} )
+CREATE (:Character{name:"Jacqueline", surname: "Bouvier", sex: "Female"} )
+CREATE (:Character{name:"Barney", surname: "Gumble", sex: "Male"} )
+CREATE (:Character{name:"Lionel", surname: "Hutz", sex: "Male"} )
+CREATE (:Character{name:"Discoteque", surname: "Stuart", alias: "Disco Stu", sex: "Male"} )
+CREATE (:Character{name:"Jasper", surname: "Beardley", sex: "Male"} )
+CREATE (:Character{name:"Dolphin", surname: "Starbeam", sex: "Male"} )
+CREATE (:Character{name:"Kearney", surname: "Zzyzwicz", sex: "Male"} )
 
-CREATE (Character{name:"Kang", surname: "Johnson", sex: "Male"} )  //Hermano de Kodos
-CREATE (Character{name:"Kodos", surname: "Johnson", sex: "Female"} )  //Hermana de Kang
 
-Family Spuckler
+//Nahasapeemapetilon Family. Particularity: Some of them have arrenged marriages
+CREATE (c57:Character{name:"Apu", surname: "Nahasapeemapetilon", sex: "Male"} )
+CREATE (c58:Character{name:"Manjula", surname: "Nahasapeemapetilon", sex: "Female"} )
+CREATE (c59:Character{name:"Apu Sr.", surname: "Nahasapeemapetilon", sex: "Male"} )   
+CREATE (c60:Character{name:"Aprahami", surname: "Nahasapeemapetilon", alias: "Mrs. Nahasapeemapetilon", sex: "Female"} )
+CREATE (c61:Character{name:"Sanjay", surname: "Nahasapeemapetilon", sex: "Male"} )
+CREATE (c62:Character{name:"Tikku", surname: "Nahasapeemapetilon", sex: "Male"} )
+CREATE (c63:Character{name:"Pahusacheta", surname: "Nahasapeemapetilon", sex: "Female"} )
+CREATE (c64:Character{name:"Jamshed", surname: "Nahasapeemapetilon", sex: "Male"} )
 
-https://simpsons.fandom.com/wiki/Cletus_Spuckler
-https://simpsons.fandom.com/wiki/Spuckler_Children#List_of_Children
+CREATE (a:Character{name:"Apu", surname:"Nahasapeemapetilon"} ) 
+       -[:MARRIED_WITH {Arranged: True}]->(m:Character{name:"Manjula", surname:"Nahasapeemapetilon"} )
+	   -[:MARRIED_WITH {Arranged: True}]->(a)
+
+CREATE (a:Character{name:"Apu", surname:"Nahasapeemapetilon"} ) 
+       -[:CHILD_OF]->(aSr:Character{name:"Apu Sr.", surname:"Nahasapeemapetilon"} )
+	   -[:CHILD_OF]->(am:Character{name:"Aprahami", surname:"Nahasapeemapetilon"} )
+	   -[:MARRIED_WITH {Arranged: True}]->(aSr)
+	   -[:MARRIED_WITH {Arranged: True}]->(am)
+
+CREATE (a:Character{name:"Sanjay", surname:"Nahasapeemapetilon"} ) 
+       -[:CHILD_OF]->(aSr:Character{name:"Apu Sr.", surname:"Nahasapeemapetilon"} )
+	   -[:CHILD_OF]->(am:Character{name:"Aprahami", surname:"Nahasapeemapetilon"} )
+
+
+//Kang and Kodos. Particularity: They have't surname or sex, they are brothers, but they have't known parents
+CREATE (:Character{name:"Kang"} )
+CREATE (:Character{name:"Kodos"} )
+
+
+	 
+//Family Spuckler
+//https://simpsons.fandom.com/wiki/Cletus_Spuckler
+//https://simpsons.fandom.com/wiki/Spuckler_Children#List_of_Children
 
 
 //Grand-grandparent Spuckler
@@ -185,14 +209,14 @@ CREATE (:Character{name:"Brittany", surname: "Spuckler", sex: "Female"} )
 MATCH (child:Character), (parent:Character)
 WHERE  child.surname = 'Spuckler' AND NOT (child.name IN ['Brandine', 'Cletus', 'Pete', 'Mau'])
 AND parent.surname = 'Spuckler' AND parent.name IN ['Brandine', 'Cletus']
-CREATE (child)-[:IS_CHILD_OF]->(parent)
+CREATE (child)-[:CHILD_OF]->(parent)
 
 MATCH (n {surname: 'Spuckler'})
 DETACH DELETE n
 
 
 
-Locations
+//Locations
 CREATE (:Location{description:"Springfield Power Plant"} )
 	,(:Location{description:"Simpson residence", address: "Evergreen 742"} )
 	,(:Location{description:"Flanders residence", address: "Evergreen 744"} )
@@ -208,22 +232,3 @@ CREATE (:Location{description:"Springfield Power Plant"} )
 	,(:Location{description:"Springfield Town Hall"} )
 	,(:Location{description:"Springfield Retirement Castle", address: "100 Veterans Avenue"} )
 
-
-
-Animals or Pets
-Santa's Little Helper
-Snowball 2
-Canary M. Burns
-Stampy
-Stewart Duck 
-Princess caballo de lisa
-Moyo, mono
-
-Relations: 
-is child of
-works in
-live in
-frecuenta 
-Incripto en
-es alumno de
-es amigo de
