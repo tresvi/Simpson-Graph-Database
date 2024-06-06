@@ -22,3 +22,89 @@ es amigo de
 
 Queries:
 
+
+
+CREATE (juan:Person {name: 'Juan'}),
+       (maria:Person {name: 'Maria'}),
+       (pedro:Person {name: 'Pedro'}),
+       (ana:Person {name: 'Ana'}),
+       (carlos:Person {name: 'Carlos'}),
+       (maria)-[:PARENT_OF]->(juan),
+       (pedro)-[:PARENT_OF]->(juan),
+       (ana)-[:PARENT_OF]->(maria),
+       (carlos)-[:PARENT_OF]->(pedro);
+
+
+MATCH (p:Person {name: 'Juan'})<-[:PARENT_OF*]-(ancestor)
+RETURN ancestor
+
+MATCH (p:Person {name: 'Juan'})<-[:PARENT_OF*]-(ancestor)
+RETURN ancestor, p
+
+MATCH (p:Person {name: 'Juan'})<-[:PARENT_OF*]-(ancestor)
+RETURN ancestor, relationships((ancestor)-[:PARENT_OF*]->(p))
+
+MATCH (p:Person {name: 'Juan'})<-[:PARENT_OF*]-(ancestor)
+WITH ancestor, count(*) AS generation
+WHERE generation > 2
+RETURN ancestor.name, generation
+
+
+Agregar variables y realizar agregaciones:
+
+cypher
+Copiar código
+MATCH (p:Person)-[r:FRIEND_OF]->(friend)
+WITH p, friend, r.since AS friendshipStart
+RETURN p.name, friend.name, friendshipStart
+Dividir consultas para mejorar el rendimiento:
+
+cypher
+Copiar código
+MATCH (p:Person)-[:FRIEND_OF]->(friend)
+WITH p, count(friend) AS friendsCount
+MATCH (p)-[:LIKES]->(hobby:Hobby)
+RETURN p.name, friendsCount, hobby.name
+Ordenar y limitar resultados:
+
+cypher
+Copiar código
+MATCH (p:Person)-[:FRIEND_OF]->(friend)
+WITH p, count(friend) AS friendCount
+ORDER BY friendCount DESC
+LIMIT 10
+RETURN p.name, friendCount
+
+
+
+-Algun antepasado de Bart fue aero mozo (air steward)?
+-Hay padres que son hermanos entre si?
+-Conoce Lisa a algun Real Character?
+-Devolver toda la linea sucesoria de Bart. detallar su grado de relacion
+-Quienes viven en la residencia Simpson
+-Quien trabaja en la planta nuclear y vive en la calle Evergreen
+-Quien Vive en la residencia Simpson y conoce a un Real Character
+
+
+//Antepasados de Bart:
+MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
+RETURN ancestor, p
+
+//Antepasados de Bart hombres (Lo interesante es que se listan nodos inconexos, como por ejemplo el padre de Marge.)
+//Se cumple con la premisa, por lo cual es correcto que se liste
+MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
+Where ancestor.sex='Male'
+RETURN ancestor, p
+
+
+//Antepasados de Bart hasta 2 generaciones hombres ("Padre y Madre" y "Abuelos hombres"):
+MATCH (p:Character {name: 'Bart'})
+	-[:CHILD_OF]->(parents)
+	-[:CHILD_OF]->(grandpas)
+Where grandpas.sex='Male'
+RETURN p, parents, grandpas
+
+Agregar la relacion "asiste" para los que van a la escuela "attends"
+Agregar la relacion "Frecuents" para decir que alguien frecuenta algun lugar
+
+Familias mas importantes de Springfield

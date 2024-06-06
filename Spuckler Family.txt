@@ -1,0 +1,91 @@
+//Family Spuckler. 
+//https://simpsons.fandom.com/wiki/Cletus_Spuckler
+//https://simpsons.fandom.com/wiki/Spuckler_Children#List_of_Children
+
+
+//Important!!: Run this script in blocks, one at a time
+//- First, the first one block with characters
+//- Second, the second one with de CHILD_OF relationships
+
+
+//Grand-grandparent Spuckler
+CREATE (spucklerAlien:Character{name:"Unamed alien", surname: "---", sex: "Unknown"} )
+	//Grandparents Spucklers
+	,(pete:Character{name:"Pete", surname: "Spuckler", sex: "Male"} )
+	,(maw:Character{name:"Maw", surname: "Spuckler", sex: "Female"} )
+	//Parents Spuckler
+	,(cletus:Character{name:"Cletus", surname: "Spuckler", sex: "Male"} )
+	,(brandine:Character{name:"Brandine", surname: "Spuckler", maidenName: "Spuckler", sex: "Female"} )
+	,(l:Location{name:"Spucklers residence"} )
+CREATE (pete)-[:CHILD_OF]->(spucklerAlien),
+       (cletus)-[:CHILD_OF]->(pete)
+	   ,(cletus)-[:CHILD_OF]->(maw)
+	   ,(cletus)-[:MARRIED_WITH]->(brandine)
+	   ,(cletus)-[:LIVES_IN]->(l)
+       ,(brandine)-[:CHILD_OF]->(pete)
+	   ,(brandine)-[:CHILD_OF]->(maw)
+	   ,(brandine)-[:MARRIED_WITH]->(cletus)
+	   ,(brandine)-[:LIVES_IN]->(l)
+//Children of Spuckler
+CREATE (:Character{name:"Brittany", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Cassidy", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Chloe", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Cody", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Dermott", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Dylan", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Heather", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Hunter", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Ian", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Jordan", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Katlin", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Kendall", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Kevin", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Kira", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Lauren", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Morgan", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Max", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Noah", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Phil", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Q-Bert", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Rumor", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Sascha", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Scout", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Taylor", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Tiffany", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Wesley", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Zoe", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Gummy Sue", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Rubella Scabies", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Witney", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Jitney", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Dubya", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Crystal Meth", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Incest", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"International Harvester", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Bithday", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Mary", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Stabbed in Jail", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Normal Head Joe", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Embry Joe", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Michael", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Ping", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Melvis", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Tripod", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Barrow", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Wheel", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Gitmo", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Minimum Wade", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Pediculus", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Fontanelle", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Oxycontin", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Dara", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Addem-Up", surname: "Spuckler", sex: "Male"} )
+	,(:Character{name:"Yasha", surname: "Spuckler", sex: "Female"} )
+	,(:Character{name:"Rest Stop", surname: "Spuckler", sex: "Female"} )
+
+
+MATCH (child:Character), (parent:Character), (l:Location { name: 'Spucklers residence'})
+WHERE  child.surname = 'Spuckler' AND NOT (child.name IN ['Brandine', 'Cletus', 'Pete', 'Mau'])
+AND parent.surname = 'Spuckler' AND parent.name IN ['Brandine', 'Cletus']
+CREATE (child)-[:CHILD_OF]->(parent)
+	  ,(child)-[:LIVES_IN]->(l)

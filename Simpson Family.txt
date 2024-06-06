@@ -1,0 +1,59 @@
+//Simpson Family
+
+//Orville - Yuma Marriage
+//First of all, we define the father nodes
+CREATE (orville:Character {name: "Orville", surname: "Simpson", sex: "Male"})
+       -[:MARRIED_WITH]->(yuma:Character {name: "Yuma", surname: "Simpson"})
+	   -[:MARRIED_WITH]->(orville)
+WITH orville, yuma
+//Then, we create the child nodes and its relationships.
+CREATE (hubert:Character {name: "Hubert", surname: "Simpson", sex: "Male"}),
+       (tyrone:Character {name: "Tyrone", surname: "Simpson", sex: "Male"}),
+       (cyrus:Character {name: "Cyrus", surname: "Simpson", sex: "Male"}),
+       (chet:Character {name: "Chet", surname: "Simpson", sex: "Male"}),
+       (abraham:Character {name: "Abraham", surname: "Simpson", sex: "Male"}),
+	   (mona:Character{name:"Mona", surname:"Simpson", maidenName:"Olsen", alias: "Grandma Simpson, Sunny, El Mono"}),
+	   (homer:Character{name:"Homer", surname:"Simpson", age: 36, sex: "Male"} ),
+	   (herbert:Character{name:"Herbert", surname:"Powell", age: 38, sex: "Male"}),
+	   (marge:Character{name:"Marge", surname:"Simpson", maidenName: "Bouvier", age: 34, sex: "Female"}),
+	   (bart:Character{name:"Bart", surname:"Simpson", age: 10, alias: "El Barto", sex: "Male"}),
+	   (hugo:Character{name:"Hugo", surname:"Simpson", age: 10, sex: "Male"}),
+	   (lisa:Character{name:"Lisa", surname:"Simpson", age: 8, sex: "Female"}),
+	   (maggie:Character{name:"Maggie", surname:"Simpson", age: 1, sex: "Female"}),
+	   (patty:Character{name:"Patty", surname: "Bouvier", sex: "Female"} ),
+	   (selma:Character{name:"Selma", surname: "Bouvier", sex: "Female"} ),
+	   (clancyB:Character{name:"Clancy", surname: "Bouvier", sex: "Male", job: "air steward"} ),
+	   (jacq:Character{name:"Jacqueline", surname: "Bouvier", sex: "Female"} )
+CREATE (hubert)-[:CHILD_OF]->(orville),
+       (hubert)-[:CHILD_OF]->(yuma),
+       (tyrone)-[:CHILD_OF]->(orville),
+       (tyrone)-[:CHILD_OF]->(yuma),
+       (cyrus)-[:CHILD_OF]->(orville),
+       (cyrus)-[:CHILD_OF]->(yuma),
+       (chet)-[:CHILD_OF]->(orville),
+       (chet)-[:CHILD_OF]->(yuma),
+       (abraham)-[:CHILD_OF]->(orville),
+       (abraham)-[:CHILD_OF]->(yuma),
+	   (abraham)-[:MARRIED_WITH]->(mona),
+	   (mona)-[:MARRIED_WITH]->(abraham),
+	   (homer)-[:CHILD_OF]->(abraham),
+	   (homer)-[:CHILD_OF]->(mona),
+	   (homer)-[:MARRIED_WITH]->(marge),
+	   (herbert)-[:CHILD_OF]->(abraham),
+	   (marge)-[:MARRIED_WITH]->(homer),
+	   (marge)-[:CHILD_OF]->(clancyB),
+	   (marge)-[:CHILD_OF]->(jacq),
+	   (bart)-[:CHILD_OF]->(homer),
+	   (bart)-[:CHILD_OF]->(marge),
+	   (hugo)-[:CHILD_OF {type: "fictitious"}]->(homer),
+	   (hugo)-[:CHILD_OF {type: "fictitious"}]->(marge),
+	   (lisa)-[:CHILD_OF]->(homer),
+	   (lisa)-[:CHILD_OF]->(marge),
+	   (maggie)-[:CHILD_OF]->(homer),
+	   (maggie)-[:CHILD_OF]->(marge),
+	   (selma)-[:CHILD_OF]->(clancyB),
+	   (selma)-[:CHILD_OF]->(jacq),
+	   (patty)-[:CHILD_OF]->(clancyB),
+	   (patty)-[:CHILD_OF]->(jacq),
+	   (clancyB)-[:MARRIED_WITH]->(jacq),
+	   (jacq)-[:MARRIED_WITH]->(clancyB)//Simpson Family
