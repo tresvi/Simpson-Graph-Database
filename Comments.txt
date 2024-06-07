@@ -24,6 +24,22 @@ CREATE (c1:Character{name:"Charles Montgomery", surname:"Burns", sex: "Male"} )
 	   <-[:CHILD_OF]-
 	   (c2:Character{name:"Larry", surname:"Burns", sex: "Male"} )
 	   
+	   
+CREATE (a:Character{name:"Apu", surname:"Nahasapeemapetilon"} ) 
+       -[:MARRIED_WITH {Arranged: True}]->(m:Character{name:"Manjula", surname:"Nahasapeemapetilon"} )
+	   -[:MARRIED_WITH {Arranged: True}]->(a)
+
+CREATE (a:Character{name:"Apu", surname:"Nahasapeemapetilon"} ) 
+       -[:CHILD_OF]->(aSr:Character{name:"Apu Sr.", surname:"Nahasapeemapetilon"} )
+	   -[:CHILD_OF]->(am:Character{name:"Aprahami", surname:"Nahasapeemapetilon"} )
+	   -[:MARRIED_WITH {Arranged: True}]->(aSr)
+	   -[:MARRIED_WITH {Arranged: True}]->(am)
+
+CREATE (a:Character{name:"Sanjay", surname:"Nahasapeemapetilon"} ) 
+       -[:CHILD_OF]->(aSr:Character{name:"Apu Sr.", surname:"Nahasapeemapetilon"} )
+	   -[:CHILD_OF]->(am:Character{name:"Aprahami", surname:"Nahasapeemapetilon"} )
+	   
+	   
 	  
 //
 Usar esta tecnica con Merge para crear registros y relaciones repetidas.

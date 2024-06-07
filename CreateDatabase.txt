@@ -1,219 +1,188 @@
 //The other springfield characters
 
 
-CREATE (mrburns:Character{name:"Charles Montgomery", surname:"Burns", sex: "Male"} ),
-	   (larry:Character{name:"Larry", surname:"Burns", sex: "Male"} ),
-	   (moe:Character{name:"Moe", surname:"Szyslak", sex: "Male"} ),
-	   (seymour:Character{name:"Seymour", surname:"Skinner", alias: "Armin Tanzarian", sex: "Male"} ),
-	   (agnes:Character{name:"Agnes", surname:"Skinner", sex: "Female"} ),
-	   (ned:Character{name:"Ned", surname:"Flanders", sex: "Male"} ),
-	   (maude:Character{name:"Maude", surname:"Flanders", sex: "Female"} ),
-	   (todd:Character{name:"Todd", surname:"Flanders", sex: "Male"} ),
-	   (rod:Character{name:"Rod", surname:"Flanders", sex: "Male"} ),
-	   (krusty:Character{name:"Herschel", surname:"Krustofsky", alias: "Krusty the clown", sex: "Male"} ),
-	   (sophie:Character{name:"Sophie", surname:"Krustofsky", sex: "Female"} ),
-	   (hyman:Character{name:"Hyman", surname:"Krustofsky", sex: "Male"} ),
-	   (rachel:Character{name:"Rachel", surname:"Krustofsky", sex: "Female"} ),
-	   (barbara:Character{name:"Barbara", surname:"Krustofsky", sex: "Female"} ),
-	   (zed:Character{name:"Zed", surname:"Krustofsky", sex: "Male"} ),
-	   (comicBookGuy:Character{name:"Jeffrey", surname:"Albertson", alias: "The comic book guy", sex: "Male"} ),
-	   (edna:Character{name:"Edna", surname:"Krabapel", sex: "Female"} ),
-	   (joe:Character{name:"Joe", surname:"Quimby", sex: "Male"} ),
-	   (timothy:Character{name:"Timothy", surname:"Lovejoy", alias: "Reverend Lovejoy", sex: "Male"} ),
-	   (helen:Character{name:"Helen", surname:"Lovejoy", sex: "Female"} ),
-	   (jessica:Character{name:"Jessica", surname:"Lovejoy", sex: "Female"} ),
-	   (clancy:Character{name:"Clancy", surname:"Wiggum", sex: "Male"} ),
-	   (sarah:Character{name:"Sarah", surname:"Wiggum", sex: "Female"} ),
-	   (ralph:Character{name:"Ralph", surname:"Wiggum", sex: "Male"} ),
-	   (lou:Character{name:"Lou", sex: "Male"} ),
-	   (eddie:Character{name:"Eddie", sex: "Male"} ),
-	   (kent:Character{name:"Kent", surname: "Brockman", sex: "Male"} ),
-	   (pedro:Character{name:"Pedro", surname: "Chespirito", alias: "Bumblebee man", sex: "Male"} ),
-	   (waylon:Character{name:"Waylon", surname: "Smithers", sex: "Male"} ),
-	   (lenny:Character{name:"Lenny", surname: "Leonard", sex: "Male"} ),
-	   (carl:Character{name:"Carl", surname: "Carlson", sex: "Male"} ),
-	   (elizabeth:Character{name:"Elizabeth", surname: "Hoover", sex: "Female"} ),
-	   (kirk:Character{name:"Kirk", surname: "Van Houten", sex: "Male"} ),
-	   (luann:Character{name:"Luann", surname: "Van Houten", sex: "Female"} ),
-	   (milhouse:Character{name:"Milhouse", surname: "Van Houten", sex: "Female"} ),
-	   (barry:Character{name:"barry", surname: "Mackleberry", sex: "Male"} ),
-	   (jerri:Character{name:"Jerry", surname: "Mackleberry", sex: "Female"} ),
-	   (terri:Character{name:"terri", surname: "Mackleberry", sex: "Female"} ),
-	   (sherri:Character{name:"sherri", surname: "Mackleberry", sex: "Female"} ),
-	   (gareth:Character{name:"Gareth", surname: "Prince", sex: "Male"} ),
-	   (gloria:Character{name:"Gloria", surname: "Prince", sex: "Female"} ),
-	   (martin:Character{name:"Martin", surname: "Prince", sex: "Male"} ),
-	   (barney:Character{name:"Barney", surname: "Gumble", sex: "Male"} ),
-	   (lionel:Character{name:"Lionel", surname: "Hutz", sex: "Male"} ),
-	   (discostu:Character{name:"Discoteque", surname: "Stuart", alias: "Disco Stu", sex: "Male"} ),
-	   (jasper:Character{name:"Jasper", surname: "Beardley", sex: "Male"} ),
-	   (jimbo:Character{name:"Jimbo", surname: "Jones", sex: "Male"} ),
-	   (dolphin:Character{name:"Dolphin", surname: "Starbeam", sex: "Male"} ),
-	   (kearney:Character{name:"Kearney", surname: "Zzyzwicz", sex: "Male"} ),
-	   (apu:Character{name:"Apu", surname: "Nahasapeemapetilon", sex: "Male"} ),
-	   (manjula:Character{name:"Manjula", surname: "Nahasapeemapetilon", sex: "Female"} ),
-	   (apusr:Character{name:"Apu Sr.", surname: "Nahasapeemapetilon", sex: "Male"} ),
-	   (aprahami:Character{name:"Aprahami", surname: "Nahasapeemapetilon", alias: "Mrs. Nahasapeemapetilon", sex: "Female"} ),
-	   (sanjay:Character{name:"Sanjay", surname: "Nahasapeemapetilon", sex: "Male"} ),
-	   (tikku:Character{name:"Tikku", surname: "Nahasapeemapetilon", sex: "Male"} ),
-	   (pahusacheta:Character{name:"Pahusacheta", surname: "Nahasapeemapetilon", sex: "Female"} ),
-	   (pahusacheta:Character{name:"Pahusacheta", surname: "Nahasapeemapetilon", sex: "Female"} ),
-	   (jamshed:Character{name:"Jamshed", surname: "Nahasapeemapetilon", sex: "Male"} ),
-	   (oct1:Character{name:"Octuplet#1", surname: "Nahasapeemapetilon", sex: "Male"} ),
-	   (oct2:Character{name:"Octuplet#2", surname: "Nahasapeemapetilon", sex: "Male"} ),
-	   (oct3:Character{name:"Octuplet#3", surname: "Nahasapeemapetilon", sex: "Male"} ),
-	   (oct4:Character{name:"Octuplet#4", surname: "Nahasapeemapetilon", sex: "Male"} ),
-	   (oct5:Character{name:"Octuplet#5", surname: "Nahasapeemapetilon", sex: "Female"} ),
-	   (oct6:Character{name:"Octuplet#6", surname: "Nahasapeemapetilon", sex: "Female"} ),
-	   (oct7:Character{name:"Octuplet#7", surname: "Nahasapeemapetilon", sex: "Female"} ),
-	   (oct8:Character{name:"Octuplet#8", surname: "Nahasapeemapetilon", sex: "Female"} )
-CREATE (mrburns)-[:WORKS_IN]->(powerplant),
-	   (larry)-[:CHILD_OF]->(mrburns),
-	   (moe)-[:WORKS_IN]->(tavern),
-	   (seymour)-[:WORKS_IN]->(school),
-	   (seymour)-[:CHILD_OF]->(agnes),
-	   (ned)-[:WORKS_IN]->(leftorioum),
-	   (ned)-[:MARRIED_WITH]->(maude),
-	   (ned)-[:LIVES_IN]->(flandersHouse),
-	   (maude)-[:MARRIED_WITH]->(ned),
-	   (maude)-[:LIVES_IN]->(flandersHouse),
-	   (todd)-[:CHILD_OF]->(ned),
-	   (todd)-[:CHILD_OF]->(maude),
-	   (todd)-[:LIVES_IN]->(flandersHouse),
-	   (todd)-[:STUDY_IN]->(school),
-	   (rod)-[:CHILD_OF]->(ned),
-	   (rod)-[:CHILD_OF]->(maude),
-	   (rod)-[:LIVES_IN]->(flandersHouse),
-	   (rod)-[:STUDY_IN]->(school),
-	   (krusty)-[:CHILD_OF]->(hyman),
-	   (krusty)-[:CHILD_OF]->(rachel),
-	   (sophie)-[:CHILD_OF]->(krusty),
-	   (barbara)-[:CHILD_OF]->(hyman),
-	   (barbara)-[:CHILD_OF]->(rachel),
-	   (hyman)-[:CHILD_OF]->(zed),
-	   (comicBookGuy)-[:WORKS_IN]->(comicStore),
-	   (edna)-[:WORKS_IN]->(school),
-	   (joe)-[:WORKS_IN]->(townHall),
-	   (timothy)-[:WORKS_IN]->(church),
-	   (timothy)-[:MARRIED_WITH]->(helen),
-	   (helen)-[:MARRIED_WITH]->(timothy),
-	   (jessica)-[:CHILD_OF]->(timothy),
-	   (jessica)-[:CHILD_OF]->(helen),
-	   (clancy)-[:WORKS_IN]->(policeDep),
-	   (clancy)-[:MARRIED_WITH]->(sarah),
-	   (sarah)-[:WORKS_IN]->(clancy),
-	   (ralph)-[:CHILD_OF]->(clancy),
-	   (ralph)-[:CHILD_OF]->(sarah),
-	   (lou)-[:WORKS_IN]->(policeDep),
-	   (eddie)-[:WORKS_IN]->(policeDep),
-	   (kent)-[:WORKS_IN]->(channel6),
-	   (pedro)-[:WORKS_IN]->(channel6),
-	   (waylon)-[:WORKS_IN]->(powerplant),
-	   (lenny)-[:WORKS_IN]->(powerplant),
-	   (carl)-[:WORKS_IN]->(powerplant),
-	   (elizabeth)-[:WORKS_IN]->(school),
-	   (kirk)-[:MARRIED_WITH]->(luann),
-	   (luann)-[:MARRIED_WITH]->(kirk),
-	   (milhouse)-[:CHILD_OF]->(luann),
-	   (milhouse)-[:CHILD_OF]->(kirk),
-	   (barry)-[:WORKS_IN]->(powerplant),
-	   (barry)-[:MARRIED_WITH]->(jerri),
-	   (jerri)-[:MARRIED_WITH]->(barry),
-	   (terri)-[:CHILD_OF]->(barry),
-	   (terri)-[:CHILD_OF]->(jerri),
-	   (sherri)-[:CHILD_OF]->(barry),
-	   (sherri)-[:CHILD_OF]->(jerri),
-	   (gareth)-[:MARRIED_WITH]->(gloria),
-	   (gloria)-[:MARRIED_WITH]->(gareth),
-	   (martin)-[:CHILD_OF]->(gareth),
-	   (martin)-[:CHILD_OF]->(gloria),
-	   (jasper)-[:LIVES_IN]->(retirement),
-	   (apusr)-[:MARRIED_WITH {Arranged: True}]->(aprahami),
-	   (aprahami)-[:MARRIED_WITH {Arranged: True}]->(apusr),
-	   (apu)-[:MARRIED_WITH {Arranged: True}]->(manjula),
-	   (apu)-[:CHILD_OF]->(apusr),
-	   (apu)-[:CHILD_OF]->(aprahami),
-	   (manjula)-[:MARRIED_WITH {Arranged: True}]->(apu),
-	   (tikku)-[:CHILD_OF]->(apusr),
-	   (tikku)-[:CHILD_OF]->(aprahami),
-	   (sanjay)-[:CHILD_OF]->(apusr),
-	   (sanjay)-[:CHILD_OF]->(aprahami),
-	   (jamshed)-[:CHILD_OF]->(sanjay),
-	   (pahusacheta)-[:CHILD_OF]->(sanjay),
-	   (oct1)-[:CHILD_OF]->(apu),
-	   (oct1)-[:CHILD_OF]->(manjula),
-	   (oct2)-[:CHILD_OF]->(apu),
-	   (oct2)-[:CHILD_OF]->(manjula),
-	   (oct3)-[:CHILD_OF]->(apu),
-	   (oct3)-[:CHILD_OF]->(manjula),
-	   (oct4)-[:CHILD_OF]->(apu),
-	   (oct4)-[:CHILD_OF]->(manjula),
-	   (oct5)-[:CHILD_OF]->(apu),
-	   (oct5)-[:CHILD_OF]->(manjula),
-	   (oct6)-[:CHILD_OF]->(apu),
-	   (oct6)-[:CHILD_OF]->(manjula),
-	   (oct7)-[:CHILD_OF]->(apu),
-	   (oct7)-[:CHILD_OF]->(manjula),
-	   (oct8)-[:CHILD_OF]->(apu),
-	   (oct8)-[:CHILD_OF]->(manjula)
-	   
-	   
-
-//Nahasapeemapetilon Family. Particularity: Some of them have arrenged marriages
-CREATE (apu:Character{name:"Apu", surname: "Nahasapeemapetilon", sex: "Male"} )
-CREATE (manjula:Character{name:"Manjula", surname: "Nahasapeemapetilon", sex: "Female"} )
-CREATE (apusr:Character{name:"Apu Sr.", surname: "Nahasapeemapetilon", sex: "Male"} )   
-CREATE (aprahami:Character{name:"Aprahami", surname: "Nahasapeemapetilon", alias: "Mrs. Nahasapeemapetilon", sex: "Female"} )
-CREATE (sanjay:Character{name:"Sanjay", surname: "Nahasapeemapetilon", sex: "Male"} )
-CREATE (tikku:Character{name:"Tikku", surname: "Nahasapeemapetilon", sex: "Male"} )
-CREATE (pahusacheta:Character{name:"Pahusacheta", surname: "Nahasapeemapetilon", sex: "Female"} )
-CREATE (jamshed:Character{name:"Jamshed", surname: "Nahasapeemapetilon", sex: "Male"} )
-
-CREATE (a:Character{name:"Apu", surname:"Nahasapeemapetilon"} ) 
-       -[:MARRIED_WITH {Arranged: True}]->(m:Character{name:"Manjula", surname:"Nahasapeemapetilon"} )
-	   -[:MARRIED_WITH {Arranged: True}]->(a)
-
-CREATE (a:Character{name:"Apu", surname:"Nahasapeemapetilon"} ) 
-       -[:CHILD_OF]->(aSr:Character{name:"Apu Sr.", surname:"Nahasapeemapetilon"} )
-	   -[:CHILD_OF]->(am:Character{name:"Aprahami", surname:"Nahasapeemapetilon"} )
-	   -[:MARRIED_WITH {Arranged: True}]->(aSr)
-	   -[:MARRIED_WITH {Arranged: True}]->(am)
-
-CREATE (a:Character{name:"Sanjay", surname:"Nahasapeemapetilon"} ) 
-       -[:CHILD_OF]->(aSr:Character{name:"Apu Sr.", surname:"Nahasapeemapetilon"} )
-	   -[:CHILD_OF]->(am:Character{name:"Aprahami", surname:"Nahasapeemapetilon"} )
-
-
-//Kang and Kodos. Particularity: They have't surname or sex, they are brothers, but they have't known parents
-CREATE (:FicCharacter{name:"Kang"} )
-CREATE (:FicCharacter{name:"Kodos"} )
-
-
-	 
-
-
-MATCH (n {surname: 'Spuckler'})
-DETACH DELETE n
-
-
-//Real Characters
-CREATE (:Real Character{name:"Stephen", surname: "Hawkings", sex: "Male"} )
-CREATE (:Real Character{name:"Bill", surname: "ClintonHawkings", sex: "Male"} )
+CREATE (mrburns:Character{name:"Charles Montgomery", surname:"Burns", sex: "Male"} )
+	   ,(larry:Character{name:"Larry", surname:"Burns", sex: "Male"} )
+	   ,(moe:Character{name:"Moe", surname:"Szyslak", sex: "Male"} )
+	   ,(seymour:Character{name:"Seymour", surname:"Skinner", alias: "Armin Tanzarian", sex: "Male"} )
+	   ,(agnes:Character{name:"Agnes", surname:"Skinner", sex: "Female"} )
+	   ,(ned:Character{name:"Ned", surname:"Flanders", sex: "Male"} )
+	   ,(maude:Character{name:"Maude", surname:"Flanders", sex: "Female"} )
+	   ,(todd:Character{name:"Todd", surname:"Flanders", sex: "Male"} )
+	   ,(rod:Character{name:"Rod", surname:"Flanders", sex: "Male"} )
+	   ,(krusty:Character{name:"Herschel", surname:"Krustofsky", alias: "Krusty the clown", sex: "Male"} )
+	   ,(sophie:Character{name:"Sophie", surname:"Krustofsky", sex: "Female"} )
+	   ,(hyman:Character{name:"Hyman", surname:"Krustofsky", sex: "Male"} )
+	   ,(rachel:Character{name:"Rachel", surname:"Krustofsky", sex: "Female"} )
+	   ,(barbara:Character{name:"Barbara", surname:"Krustofsky", sex: "Female"} )
+	   ,(zed:Character{name:"Zed", surname:"Krustofsky", sex: "Male"} )
+	   ,(comicBookGuy:Character{name:"Jeffrey", surname:"Albertson", alias: "The comic book guy", sex: "Male"} )
+	   ,(edna:Character{name:"Edna", surname:"Krabapel", sex: "Female"} )
+	   ,(joe:Character{name:"Joe", surname:"Quimby", sex: "Male"} )
+	   ,(timothy:Character{name:"Timothy", surname:"Lovejoy", alias: "Reverend Lovejoy", sex: "Male"} )
+	   ,(helen:Character{name:"Helen", surname:"Lovejoy", sex: "Female"} )
+	   ,(jessica:Character{name:"Jessica", surname:"Lovejoy", sex: "Female"} )
+	   ,(clancy:Character{name:"Clancy", surname:"Wiggum", sex: "Male"} )
+	   ,(sarah:Character{name:"Sarah", surname:"Wiggum", sex: "Female"} )
+	   ,(ralph:Character{name:"Ralph", surname:"Wiggum", sex: "Male"} )
+	   ,(lou:Character{name:"Lou", sex: "Male"} )
+	   ,(eddie:Character{name:"Eddie", sex: "Male"} )
+	   ,(kent:Character{name:"Kent", surname: "Brockman", sex: "Male"} )
+	   ,(pedro:Character{name:"Pedro", surname: "Chespirito", alias: "Bumblebee man", sex: "Male"} )
+	   ,(waylon:Character{name:"Waylon", surname: "Smithers", sex: "Male"} )
+	   ,(lenny:Character{name:"Lenny", surname: "Leonard", sex: "Male"} )
+	   ,(carl:Character{name:"Carl", surname: "Carlson", sex: "Male"} )
+	   ,(elizabeth:Character{name:"Elizabeth", surname: "Hoover", sex: "Female"} )
+	   ,(kirk:Character{name:"Kirk", surname: "Van Houten", sex: "Male"} )
+	   ,(luann:Character{name:"Luann", surname: "Van Houten", sex: "Female"} )
+	   ,(milhouse:Character{name:"Milhouse", surname: "Van Houten", sex: "Female"} )
+	   ,(barry:Character{name:"barry", surname: "Mackleberry", sex: "Male"} )
+	   ,(jerri:Character{name:"Jerry", surname: "Mackleberry", sex: "Female"} )
+	   ,(terri:Character{name:"terri", surname: "Mackleberry", sex: "Female"} )
+	   ,(sherri:Character{name:"sherri", surname: "Mackleberry", sex: "Female"} )
+	   ,(gareth:Character{name:"Gareth", surname: "Prince", sex: "Male"} )
+	   ,(gloria:Character{name:"Gloria", surname: "Prince", sex: "Female"} )
+	   ,(martin:Character{name:"Martin", surname: "Prince", sex: "Male"} )
+	   ,(barney:Character{name:"Barney", surname: "Gumble", sex: "Male"} )
+	   ,(lionel:Character{name:"Lionel", surname: "Hutz", sex: "Male"} )
+	   ,(discostu:Character{name:"Discoteque", surname: "Stuart", alias: "Disco Stu", sex: "Male"} )
+	   ,(jasper:Character{name:"Jasper", surname: "Beardley", sex: "Male"} )
+	   ,(nelson:Character{name:"Nelson", surname: "Muntz", sex: "Male"} )
+	   ,(eddieM:Character{name:"Eddie", surname: "Muntz", sex: "Male"} )
+	   ,(mrsMuntz:Character{name:"Mrs. Muntz", surname: "Muntz", sex: "Female"} )
+	   ,(jimbo:Character{name:"Jimbo", surname: "Jones", sex: "Male"} )
+	   ,(dolphin:Character{name:"Dolphin", surname: "Starbeam", sex: "Male"} )
+	   ,(kearney:Character{name:"Kearney", surname: "Zzyzwicz", sex: "Male"} )
+	   ,(apu:Character{name:"Apu", surname: "Nahasapeemapetilon", sex: "Male"} )
+	   ,(manjula:Character{name:"Manjula", surname: "Nahasapeemapetilon", sex: "Female"} )
+	   ,(apusr:Character{name:"Apu Sr.", surname: "Nahasapeemapetilon", sex: "Male"} )
+	   ,(aprahami:Character{name:"Aprahami", surname: "Nahasapeemapetilon", alias: "Mrs. Nahasapeemapetilon", sex: "Female"} )
+	   ,(sanjay:Character{name:"Sanjay", surname: "Nahasapeemapetilon", sex: "Male"} )
+	   ,(tikku:Character{name:"Tikku", surname: "Nahasapeemapetilon", sex: "Male"} )
+	   ,(pahusacheta:Character{name:"Pahusacheta", surname: "Nahasapeemapetilon", sex: "Female"} )
+	   ,(jamshed:Character{name:"Jamshed", surname: "Nahasapeemapetilon", sex: "Male"} )
+	   ,(oct1:Character{name:"Octuplet#1", surname: "Nahasapeemapetilon", sex: "Male"} )
+	   ,(oct2:Character{name:"Octuplet#2", surname: "Nahasapeemapetilon", sex: "Male"} )
+	   ,(oct3:Character{name:"Octuplet#3", surname: "Nahasapeemapetilon", sex: "Male"} )
+	   ,(oct4:Character{name:"Octuplet#4", surname: "Nahasapeemapetilon", sex: "Male"} )
+	   ,(oct5:Character{name:"Octuplet#5", surname: "Nahasapeemapetilon", sex: "Female"} )
+	   ,(oct6:Character{name:"Octuplet#6", surname: "Nahasapeemapetilon", sex: "Female"} )
+	   ,(oct7:Character{name:"Octuplet#7", surname: "Nahasapeemapetilon", sex: "Female"} )
+	   ,(oct8:Character{name:"Octuplet#8", surname: "Nahasapeemapetilon", sex: "Female"} )
+	   ,(kang:FicCharacter{name:"Kang", sex:"N/A"} )
+	   ,(kodos:FicCharacter{name:"Kodos", sex:"N/A"} )
+	   ,(billG:RealCharacter{name:"Bill", surname:"Gates"} )
+	   ,(billC:RealCharacter{name:"Bill", surname:"Clinton"} )
+	   ,(stephen:RealCharacter{name:"Stephen", surname:"Hawking"} )
 //Locations
-CREATE (powerplant:Location{description:"Springfield Power Plant"} )
-	,(:Location{name:"Simpsons residence", address: "Evergreen 742"} )
-	,(flandersHouse:Location{name:"Flanders residence", address: "Evergreen 744"} )
-	,(:Location{name:"Springfield Retirement Castle", address: "100 Veterans Avenue"} )
-	,(comicStore:Location{name:"The Android's dungeon"} )
-	,(school:Location{name:"Springfield Elementary School"} )
-	,(tavern:Location{name:"Moe's Tavern"} )
-	,(church:Location{name:"First church of Springfield"} )
-	,(:Location{name:"Aztec Theater"} )
-	,(:Location{name:"Krusty Burgers"} )
-	,(:Location{name:"Kwik-E-Mart"} )
-	,(policeDep:Location{name:"Spingfied Police Departent"} )
-	,(channel6:Location{name:"Channel 6"} )
-	,(townHall:Location{name:"Springfield Town Hall"} )
-	,(retirement:Location{name:"Springfield Retirement Castle", address: "100 Veterans Avenue"} )
-	,(leftorium:Location{name:"The Leftorium"} )
-
+	   ,(powerplant:Location{description:"Springfield Power Plant"} )
+	   ,(simpsonHouse:Location{name:"Simpsons residence", address: "Evergreen 742"} )
+	   ,(flandersHouse:Location{name:"Flanders residence", address: "Evergreen 744"} )
+	   ,(comicStore:Location{name:"The Android's dungeon"} )
+	   ,(school:Location{name:"Springfield Elementary School"} )
+	   ,(tavern:Location{name:"Moe's Tavern"} )
+	   ,(church:Location{name:"First church of Springfield"} )
+	   ,(cinema:Location{name:"Aztec Theater"} )
+	   ,(krustyburger:Location{name:"Krusty Burgers"} )
+	   ,(kwikemart:Location{name:"Kwik-E-Mart"} )
+	   ,(policeDep:Location{name:"Spingfied Police Departent"} )
+	   ,(channel6:Location{name:"Channel 6"} )
+	   ,(townHall:Location{name:"Springfield Town Hall"} )
+	   ,(retirement:Location{name:"Springfield Retirement Castle", address: "100 Veterans Avenue"} )
+	   ,(leftorium:Location{name:"The Leftorium"} )
+CREATE (mrburns)-[:WORKS_IN {role: "Owner"}]->(powerplant)
+	   ,(larry)-[:CHILD_OF]->(mrburns)
+	   ,(moe)-[:WORKS_IN]->(tavern)
+	   ,(seymour)-[:WORKS_IN]->(school)
+	   ,(seymour)-[:CHILD_OF]->(agnes)
+	   ,(ned)-[:WORKS_IN]->(leftorium)
+	   ,(ned)-[:MARRIED_WITH]->(maude)
+	   ,(ned)-[:LIVES_IN]->(flandersHouse)
+	   ,(maude)-[:MARRIED_WITH]->(ned)
+	   ,(maude)-[:LIVES_IN]->(flandersHouse)
+	   ,(todd)-[:CHILD_OF]->(ned)
+	   ,(todd)-[:CHILD_OF]->(maude)
+	   ,(todd)-[:LIVES_IN]->(flandersHouse)
+	   ,(todd)-[:STUDY_IN]->(school)
+	   ,(rod)-[:CHILD_OF]->(ned)
+	   ,(rod)-[:CHILD_OF]->(maude)
+	   ,(rod)-[:LIVES_IN]->(flandersHouse)
+	   ,(rod)-[:STUDY_IN]->(school)
+	   ,(krusty)-[:CHILD_OF]->(hyman)
+	   ,(krusty)-[:CHILD_OF]->(rachel)
+	   ,(krusty)-[:WORKS_IN]->(channel6)
+	   ,(sophie)-[:CHILD_OF]->(krusty)
+	   ,(barbara)-[:CHILD_OF]->(hyman)
+	   ,(barbara)-[:CHILD_OF]->(rachel)
+	   ,(hyman)-[:CHILD_OF]->(zed)
+	   ,(comicBookGuy)-[:WORKS_IN]->(comicStore)
+	   ,(edna)-[:WORKS_IN]->(school)
+	   ,(joe)-[:WORKS_IN]->(townHall)
+	   ,(timothy)-[:WORKS_IN]->(church)
+	   ,(timothy)-[:MARRIED_WITH]->(helen)
+	   ,(helen)-[:MARRIED_WITH]->(timothy)
+	   ,(jessica)-[:CHILD_OF]->(timothy)
+	   ,(jessica)-[:CHILD_OF]->(helen)
+	   ,(clancy)-[:WORKS_IN]->(policeDep)
+	   ,(clancy)-[:MARRIED_WITH]->(sarah)
+	   ,(sarah)-[:WORKS_IN]->(clancy)
+	   ,(ralph)-[:CHILD_OF]->(clancy)
+	   ,(ralph)-[:CHILD_OF]->(sarah)
+	   ,(lou)-[:WORKS_IN]->(policeDep)
+	   ,(eddie)-[:WORKS_IN]->(policeDep)
+	   ,(kent)-[:WORKS_IN]->(channel6)
+	   ,(pedro)-[:WORKS_IN]->(channel6)
+	   ,(waylon)-[:WORKS_IN]->(powerplant)
+	   ,(lenny)-[:WORKS_IN]->(powerplant)
+	   ,(carl)-[:WORKS_IN]->(powerplant)
+	   ,(elizabeth)-[:WORKS_IN]->(school)
+	   ,(kirk)-[:MARRIED_WITH]->(luann)
+	   ,(luann)-[:MARRIED_WITH]->(kirk)
+	   ,(milhouse)-[:CHILD_OF]->(luann)
+	   ,(milhouse)-[:CHILD_OF]->(kirk)
+	   ,(barry)-[:WORKS_IN]->(powerplant)
+	   ,(barry)-[:MARRIED_WITH]->(jerri)
+	   ,(jerri)-[:MARRIED_WITH]->(barry)
+	   ,(terri)-[:CHILD_OF]->(barry)
+	   ,(terri)-[:CHILD_OF]->(jerri)
+	   ,(sherri)-[:CHILD_OF]->(barry)
+	   ,(sherri)-[:CHILD_OF]->(jerri)
+	   ,(gareth)-[:MARRIED_WITH]->(gloria)
+	   ,(gloria)-[:MARRIED_WITH]->(gareth)
+	   ,(martin)-[:CHILD_OF]->(gareth)
+	   ,(martin)-[:CHILD_OF]->(gloria)
+	   ,(jasper)-[:LIVES_IN]->(retirement)
+	   ,(apusr)-[:MARRIED_WITH {Arranged: True}]->(aprahami)
+	   ,(aprahami)-[:MARRIED_WITH {Arranged: True}]->(apusr)
+	   ,(nelson)-[:CHILD_OF]->(eddieM)
+	   ,(nelson)-[:CHILD_OF]->(mrsMuntz)
+	   ,(apu)-[:MARRIED_WITH {Arranged: True}]->(manjula)
+	   ,(apu)-[:WORKS_IN]->(kwikemart)
+	   ,(apu)-[:CHILD_OF]->(apusr)
+	   ,(apu)-[:CHILD_OF]->(aprahami)
+	   ,(manjula)-[:MARRIED_WITH {Arranged: True}]->(apu)
+	   ,(tikku)-[:CHILD_OF]->(apusr)
+	   ,(tikku)-[:CHILD_OF]->(aprahami)
+	   ,(sanjay)-[:WORKS_IN]->(kwikemart)
+	   ,(sanjay)-[:CHILD_OF]->(apusr)
+	   ,(sanjay)-[:CHILD_OF]->(aprahami)
+	   ,(jamshed)-[:CHILD_OF]->(sanjay)
+	   ,(pahusacheta)-[:CHILD_OF]->(sanjay)
+	   ,(oct1)-[:CHILD_OF]->(apu)
+	   ,(oct1)-[:CHILD_OF]->(manjula)
+	   ,(oct2)-[:CHILD_OF]->(apu)
+	   ,(oct2)-[:CHILD_OF]->(manjula)
+	   ,(oct3)-[:CHILD_OF]->(apu)
+	   ,(oct3)-[:CHILD_OF]->(manjula)
+	   ,(oct4)-[:CHILD_OF]->(apu)
+	   ,(oct4)-[:CHILD_OF]->(manjula)
+	   ,(oct5)-[:CHILD_OF]->(apu)
+	   ,(oct5)-[:CHILD_OF]->(manjula)
+	   ,(oct6)-[:CHILD_OF]->(apu)
+	   ,(oct6)-[:CHILD_OF]->(manjula)
+	   ,(oct7)-[:CHILD_OF]->(apu)
+	   ,(oct7)-[:CHILD_OF]->(manjula)
+	   ,(oct8)-[:CHILD_OF]->(apu)
+	   ,(oct8)-[:CHILD_OF]->(manjula)
+	   
+	   

@@ -108,3 +108,5 @@ Agregar la relacion "asiste" para los que van a la escuela "attends"
 Agregar la relacion "Frecuents" para decir que alguien frecuenta algun lugar
 
 Familias mas importantes de Springfield
+
+Quienes tienen casamientos arreglados (arrenged marriages)
