@@ -1,6 +1,5 @@
 //Simpson Family
 
-//Orville - Yuma Marriage
 //First of all, we define the father nodes
 CREATE (orville:Character {name: "Orville", surname: "Simpson", sex: "Male"})
        -[:MARRIED_WITH]->(yuma:Character {name: "Yuma", surname: "Simpson"})
@@ -56,4 +55,4 @@ CREATE (hubert)-[:CHILD_OF]->(orville),
 	   (patty)-[:CHILD_OF]->(clancyB),
 	   (patty)-[:CHILD_OF]->(jacq),
 	   (clancyB)-[:MARRIED_WITH]->(jacq),
-	   (jacq)-[:MARRIED_WITH]->(clancyB)//Simpson Family
+	   (jacq)-[:MARRIED_WITH]->(clancyB)
