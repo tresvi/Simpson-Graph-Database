@@ -317,7 +317,7 @@ CREATE (hubert)-[:CHILD_OF]->(orville)
 	   ,(oct7)-[:CHILD_OF]->(manjula)
 	   ,(oct8)-[:CHILD_OF]->(apu)
 	   ,(oct8)-[:CHILD_OF]->(manjula)
-	   ,(dtHibbert)-[:MARRIED_WITH]->(bernice)
+	   ,(drHibbert)-[:MARRIED_WITH]->(bernice)
 	   ,(bernice)-[:MARRIED_WITH]->(drHibbert)
 	   
 	//   Ciclo cerrado:  Bart amigo de nelson, nelson amigo de lisa, lisa amiga de Ralph, ralph amigo de nelson/bart
