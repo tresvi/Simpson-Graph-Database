@@ -34,55 +34,101 @@ CREATE (juan:Person {name: 'Juan'}),
        (ana)-[:PARENT_OF]->(maria),
        (carlos)-[:PARENT_OF]->(pedro);
 
+//Lista a todos los personajes llamdos Bart
+MATCH (p:Character {name: 'Bart'}) 
+RETURN p
 
-MATCH (p:Person {name: 'Juan'})<-[:PARENT_OF*]-(ancestor)
+//Lista a todos la flia Simpson con sus relaciones
+MATCH (p:Character {surname: 'Simpson'}) 
+RETURN p
+
+//Todos los ancestros de Bart
+MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
 RETURN ancestor
 
-MATCH (p:Person {name: 'Juan'})<-[:PARENT_OF*]-(ancestor)
+//Todos los ancestros de Bart, incluido Bart
+MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
+RETURN p, ancestor
+
+//Antecestros hombres de Bart 
+MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
+Where ancestor.sex='Male'
 RETURN ancestor, p
 
-MATCH (p:Person {name: 'Juan'})<-[:PARENT_OF*]-(ancestor)
-RETURN ancestor, relationships((ancestor)-[:PARENT_OF*]->(p))
+//relationships no se sabe que hace
+MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
+RETURN ancestor, relationships((ancestor)<-[:CHILD_OF*]-(p))
 
-MATCH (p:Person {name: 'Juan'})<-[:PARENT_OF*]-(ancestor)
-WITH ancestor, count(*) AS generation
-WHERE generation > 2
-RETURN ancestor.name, generation
+//Devolver solo 2 generaciones de ancestros de Bart
+MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*1..2]->(ancestor)
+RETURN ancestor
+
+//Otra manera de devolver solo 2 generaciones de ancestros.
+MATCH (p:Character {name: 'Bart'})
+	-[:CHILD_OF]->(parents)
+	-[:CHILD_OF]->(grandpas)
+RETURN parents, grandpas
+
+//Ancestros de bart de generaciones mayores a 2
+MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*3..]->(ancestor)
+RETURN ancestor
 
 
-Agregar variables y realizar agregaciones:
+//Bart ancestors with his own generation number
+MATCH path = (p:Character {name: 'Bart'})-[:CHILD_OF*1..3]->(ancestor)
+WITH ancestor, length(path) AS generation
+RETURN ancestor.name, ancestor.surname, ancestor.sex, ancestor.age, ancestor.maidenName, ancestor.alias, generation
 
-cypher
-Copiar código
-MATCH (p:Person)-[r:FRIEND_OF]->(friend)
-WITH p, friend, r.since AS friendshipStart
-RETURN p.name, friend.name, friendshipStart
-Dividir consultas para mejorar el rendimiento:
 
-cypher
-Copiar código
-MATCH (p:Person)-[:FRIEND_OF]->(friend)
-WITH p, count(friend) AS friendsCount
-MATCH (p)-[:LIKES]->(hobby:Hobby)
-RETURN p.name, friendsCount, hobby.name
-Ordenar y limitar resultados:
+//Characters with more than 3 friends
+MATCH (p:Character)-[:FRIEND_OF]->(friend)
+WITH p, count(friend) AS friendCount
+WHERE friendCount > 2
+RETURN p.name, friendCount
 
-cypher
-Copiar código
-MATCH (p:Person)-[:FRIEND_OF]->(friend)
+//Cantidades de amigos con dataset limitado y ordenado
+MATCH (p:Character)-[:FRIEND_OF]->(friend)
 WITH p, count(friend) AS friendCount
 ORDER BY friendCount DESC
 LIMIT 10
-RETURN p.name, friendCount
+RETURN p, friendCount
 
 
 
--Algun antepasado de Bart fue aero mozo (air steward)?
--Hay padres que son hermanos entre si?
--Conoce Lisa a algun Real Character?
--Devolver toda la linea sucesoria de Bart. detallar su grado de relacion
--Quienes viven en la residencia Simpson
+//Algun antepasado de Bart fue aero mozo (air steward)?
+MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
+WHERE ancestor.job = 'air steward'
+RETURN ancestor
+
+//Parents married with someone
+MATCH (parent:Character)<-[:CHILD_OF]-()
+WHERE exists((parent)-[:MARRIED_WITH]-())
+RETURN parent
+
+-Brothers married to each other
+MATCH (brother:Character)-[:CHILD_OF]->(parent),
+      (sister:Character)-[:CHILD_OF]->(parent),
+      (brother)-[:MARRIED_WITH]->(sister)
+WHERE brother.sex = "Male" AND sister.sex = "Female"
+RETURN brother, sister
+
+
+-List all friends
+Match (p)-[:FRIEND_OF]->(l:Character {name: 'lisa' surname: 'Simpson'}) 
+Return p
+
+-Is Lisa friend with any real Character?
+MATCH (lisa:Character {name: "Lisa", surname: "Simpson"})<-[:FRIEND_OF]-(friend:RealCharacter)
+RETURN friend
+
+
+Those who live in the Simpson Residence.
+MATCH (p:Character)-[:LIVES_IN]->(l:Location{name:'Simpsons residence'})
+RETURN p
+
+
 -Quien trabaja en la planta nuclear y vive en la calle Evergreen
+
 -Quien Vive en la residencia Simpson y conoce a un Real Character
 
 
@@ -90,23 +136,11 @@ RETURN p.name, friendCount
 MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
 RETURN ancestor, p
 
-//Antepasados de Bart hombres (Lo interesante es que se listan nodos inconexos, como por ejemplo el padre de Marge.)
-//Se cumple con la premisa, por lo cual es correcto que se liste
-MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
-Where ancestor.sex='Male'
-RETURN ancestor, p
 
 
-//Antepasados de Bart hasta 2 generaciones hombres ("Padre y Madre" y "Abuelos hombres"):
-MATCH (p:Character {name: 'Bart'})
-	-[:CHILD_OF]->(parents)
-	-[:CHILD_OF]->(grandpas)
-Where grandpas.sex='Male'
-RETURN p, parents, grandpas
-
-Agregar la relacion "asiste" para los que van a la escuela "attends"
-Agregar la relacion "Frecuents" para decir que alguien frecuenta algun lugar
 
 Familias mas importantes de Springfield
 
 Quienes tienen casamientos arreglados (arrenged marriages)
+
+Amistades no correspondidas

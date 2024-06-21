@@ -1,6 +1,6 @@
 
 CREATE (orville:Character {name: "Orville", surname: "Simpson", sex: "Male"})
-       ,(yuma:Character {name: "Yuma", surname: "Simpson"})
+       ,(yuma:Character {name: "Yuma", surname: "Simpson", sex: "Female"})
 	   ,(hubert:Character {name: "Hubert", surname: "Simpson", sex: "Male"})
        ,(tyrone:Character {name: "Tyrone", surname: "Simpson", sex: "Male"})
        ,(cyrus:Character {name: "Cyrus", surname: "Simpson", sex: "Male"})
