@@ -1,3 +1,18 @@
+Aplicativos: TU, CU
+se relaciona con Mensaje MQ
+Archivo secuencial tiene campos (casa descripcion, direccion)
+Programas: Estan por por aplicativo. prog suprogramas y mapas, Ver Arbol Algo
+DDM: Data definition Model, son las vistas de tablas de Host
+
+El programa llamador, me deja ir a ver loas vistas que usan.
+ÑView-PROG-USA   (son los prog que usan la vista)
+A-ViEW
+y en el vec A-VIEW-Acciones esta lo que hace con la vista (Alta, modif, consult)
+
+
+CUCTACTA-A
+
+
 //Pending to be implemented
 /*
 Animals or Pets
@@ -136,11 +151,54 @@ RETURN p
 MATCH (p:Character {name: 'Bart'})-[:CHILD_OF*]->(ancestor)
 RETURN ancestor, p
 
+//Todos los nodos relacionados con Bart
+MATCH (p:Character {name: 'Bart'})-[rel]-(relatedNode)
+RETURN p, rel, relatedNode;
 
 
+
+//Amigos de homero que son compañeros de trabajo
+//Amigos de los hijos de homero
 
 Familias mas importantes de Springfield
 
 Quienes tienen casamientos arreglados (arrenged marriages)
 
 Amistades no correspondidas
+
+Antepasados DIRECTOS en comun entre 2 personas:
+MATCH (a:Character {name: 'Bart'}), (b:Character {name: 'Lisa'}),
+      p = (a)-[:CHILD_OF*]->(commonAncestor)<-[:CHILD_OF*]-(b)
+RETURN commonAncestor
+
+(Profundidad limitada entre 1 y 5)
+MATCH (a:Character {name: 'Bart'}), (b:Character {name: 'Lisa'}),
+      p = (a)-[:CHILD_OF*1..5]->(commonAncestor)<-[:CHILD_OF*1..5]-(b)
+RETURN commonAncestor, a ,b
+
+
+Antepasados DIRECTOS en comun entre 3 personas:
+MATCH (a:Character {name: 'Bart'}), (b:Character {name: 'Lisa'}), (c:Character {name: 'Maggie'}),
+      p = (a)-[:CHILD_OF*]->(commonAncestor)<-[:CHILD_OF*]-(b),
+      q = (c)-[:CHILD_OF*]->(commonAncestor)
+RETURN commonAncestor, a ,b, c
+
+TODOS los Antepasados en comun entre 3 personas:
+MATCH (a:Character {name: 'Bart'}), (b:Character {name: 'Lisa'}), (c:Character {name: 'Maggie'})
+MATCH p = (a)-[:CHILD_OF*]->(ancestor)
+MATCH q = (b)-[:CHILD_OF*]->(ancestor)
+MATCH r = (c)-[:CHILD_OF*]->(ancestor)
+RETURN DISTINCT ancestor
+
+Personajes sin realcion alguna:
+MATCH (n:Character)
+WHERE NOT (n)--()
+RETURN n
+
+
+Borrado de 450 nodos sin relacion:
+MATCH (n)
+WHERE NOT (n)--()
+WITH n LIMIT 450
+DELETE n
+RETURN count(n) as deletedNodes
